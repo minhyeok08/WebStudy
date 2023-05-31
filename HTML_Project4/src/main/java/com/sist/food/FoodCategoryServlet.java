@@ -92,6 +92,7 @@ public class FoodCategoryServlet extends HttpServlet {
 		out.println("</body>");
 		out.println("</html>");
 		
+		
 	}
 
 }
