@@ -1,6 +1,7 @@
 package com.sist.dao;
 // => 카테고리 => 카테고리별 맛집 => 맛집에 대한 상세보기 => 지도출력,검색(Ajax)
 import java.util.*;
+
 import java.sql.*;
 public class FoodDAO {
     // 연결 객체 
