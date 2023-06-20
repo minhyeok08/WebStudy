@@ -1,22 +1,22 @@
 package com.sist.dao;
 import java.util.*;
 import java.sql.*;
-public class RentMainDAO {
+public class RentDAO {
 	private Connection conn;
 	private PreparedStatement ps;
 	private final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
-	private static RentMainDAO dao;
-	public RentMainDAO()
+	private static RentDAO dao;
+	public RentDAO()
 	{
 		try
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		}catch(Exception ex) {}
 	}
-	public static RentMainDAO newInstance()
+	public static RentDAO newInstance()
 	{
 		if(dao==null)
-			dao=new RentMainDAO();
+			dao=new RentDAO();
 		return dao;
 	}
 	public void getConnection()
@@ -35,7 +35,7 @@ public class RentMainDAO {
 		}catch(Exception ex) {}
 	}
 	// Category 추가
-	public void RentMainInsert(RentMainVO vo)
+	public void RentMainInsert(RentInfoVO vo)
 	{
 		try
 		{
@@ -58,9 +58,9 @@ public class RentMainDAO {
 			disConnection();
 		}
 	}
-	public List<RentMainVO> project_rent_main()
+	public List<RentInfoVO> project_rent_main()
 	{
-		List<RentMainVO> list=new ArrayList<RentMainVO>();
+		List<RentInfoVO> list=new ArrayList<RentInfoVO>();
 		try
 		{
 			getConnection();
@@ -70,7 +70,7 @@ public class RentMainDAO {
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
-				RentMainVO vo=new RentMainVO();
+				RentInfoVO vo=new RentInfoVO();
 				
 				String s=rs.getString(1);
 				vo.setName(rs.getString(2));
