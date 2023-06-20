@@ -43,7 +43,7 @@ public class RentMainDAO {
 			String sql="INSERT INTO project_rent_main VALUES("
 					+ "pr_carID_seq.nextval,?,?,?,?)";
 			ps=conn.prepareStatement(sql);
-			ps.setString(1, vo.getCarID());
+			ps.setInt(1, vo.getCarID());
 			ps.setString(2, vo.getName());
 			ps.setString(3, vo.getSort());
 			ps.setString(4, vo.getPoster());
