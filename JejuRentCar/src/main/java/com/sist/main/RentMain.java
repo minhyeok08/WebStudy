@@ -11,7 +11,7 @@ public class RentMain {
    public static void main(String[] args) {
       // TODO Auto-generated method stub
       
-      RentDAO dao=RentDAO.newInstance();
+      //RentDAO dao=RentDAO.newInstance();
       try
       {
          // 사이트 연결
@@ -79,12 +79,12 @@ public class RentMain {
             //System.out.println("가격: "+price.get(i).text().replace(",", "").replace("원", ""));
             //System.out.println("가격: "+price);
             
-            for(int j=0;j<vo.getCid();j++)
-            {
-               Document doc2=(Document) Jsoup.connect("https://rentinjeju.com/search_car/select_rentcar?"+vo.getCid());
-               Elements link2=doc.select("div.container div.col-5 a");
-               System.out.println(link2);
-            }
+			/*
+			 * for(int j=0;j<vo.getCid();j++) { Document doc2=(Document)
+			 * Jsoup.connect("https://rentinjeju.com/search_car/select_rentcar?"+vo.getCid()
+			 * ); Elements link2=doc.select("div.container div.col-5 a");
+			 * System.out.println(link2); }
+			 */
             
 //            if (i < 171) {
 //               price.add(16, new Element("img")

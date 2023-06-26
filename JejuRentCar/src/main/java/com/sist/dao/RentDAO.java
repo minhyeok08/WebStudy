@@ -1,4 +1,4 @@
-package com.sist.main;
+package com.sist.dao;
 import java.util.*;
 
 import org.jsoup.Jsoup;
@@ -6,12 +6,12 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import com.sist.dao.*;
-public class RentMain {
+public class RentDAO {
 
    public static void main(String[] args) {
       // TODO Auto-generated method stub
       
-      RentDAO dao=RentDAO.newInstance();
+      //RentDAO dao=RentDAO.newInstance();
       try
       {
          // 사이트 연결
@@ -101,7 +101,7 @@ public class RentMain {
             //p=p.replace("&", "#");
             //vo.setPoster(p);
             //vo.setLink("https://www.mangoplate.com"+link.get(i).attr("href"));
-            //dao.RentMainInsert(vo);
+            //dao.RentDAOInsert(vo);
          }
          System.out.println("저장 완료");
          
