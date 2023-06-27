@@ -26,6 +26,7 @@ public class RentDAO {
          Elements brand=doc.select("div.container div[class*=small text-title] span:nth-of-type(5n)");
          Elements price=doc.select("span[class*=bolder text-primary]");
          Elements link=doc.select("div.container div.col-5 a");
+         Elements poster=doc.select("div.container div.col-3 img");
          
          //Elements cidLink=doc.select("");
          //Elements dOption=doc.select("");
@@ -45,6 +46,10 @@ public class RentDAO {
             //System.out.println("idx="+idx);
             l = l.substring(idx+1);
             //System.out.println(l);
+            
+            //String p = (poster.get(i).attr("src"));
+            //System.out.println(p);
+            //int idx2 = p.indexOf("")
             
             
             //if (i > price.size()-1) {
@@ -75,17 +80,19 @@ public class RentDAO {
             System.out.println("기어: "+gearType.get(i).text()); 
             System.out.println("브랜드: "+brand.get(i).text());
             System.out.println("차ID: "+l);
-            //System.out.println("링크: "+link.get(i).attr("href"));
-            //System.out.println("가격: "+price.get(i).text().replace(",", "").replace("원", ""));
-            //System.out.println("가격: "+price);
+            System.out.println("링크: "+link.get(i).attr("href"));
+            System.out.println("가격: "+price.get(i).text().replace(",", "").replace("원", ""));
+            System.out.println("가격: "+price);
             
-            for(int j=0;j<vo.getCid();j++)
-            {
-               Document doc2=(Document) Jsoup.connect("https://rentinjeju.com/search_car/select_rentcar?"+vo.getCid());
-               Elements link2=doc.select("div.container div.col-5 a");
-               System.out.println(link2);
-            }
-            
+			
+			 Document doc2 = Jsoup.connect("https://rentinjeju.com/search_car/select_rentcar?cid="+vo.getCid()).get();
+			 Elements poster2=doc2.select("div.container div.col-3 img");
+			 Elements option=doc2.select("div.small:nth-child(n+2)");
+			 
+			 
+			 System.out.println(poster2.attr("src"));
+			 System.out.println(option.get(0).text().substring(option.get(0).text().lastIndexOf("ㆍ")+8));
+		
 //            if (i < 171) {
 //               price.add(16, new Element("img")
 //               System.out.println("가격: "+price.get(i).text()); 
@@ -102,7 +109,9 @@ public class RentDAO {
             //vo.setPoster(p);
             //vo.setLink("https://www.mangoplate.com"+link.get(i).attr("href"));
             //dao.RentDAOInsert(vo);
+            
          }
+         
          System.out.println("저장 완료");
          
          /*for(int i=0;i<=link.size();i++)
