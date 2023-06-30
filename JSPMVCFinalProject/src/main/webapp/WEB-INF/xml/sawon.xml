@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sawon SYSTEM "sawon.dtd">
+<sawon>
+	<list>
+		<name>aaa</name>
+		<sex>남자</sex>
+		<phone>111-1111</phone>
+	</list>
+	<list>
+		<name>aaa</name>
+		<sex>남자</sex>
+		<phone>111-1111</phone>
+	</list>
+	<list>
+		<name>aaa</name>
+		<sex>남자</sex>
+		<phone>111-1111</phone>
+	</list>
+</sawon>

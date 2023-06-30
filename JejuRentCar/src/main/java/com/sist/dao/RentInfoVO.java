@@ -2,7 +2,7 @@ package com.sist.dao;
 
 public class RentInfoVO {
    private int cid, price;
-   private String carName,carSize,seater,fuelType,gearType,brand,dOption,link;
+   private String carName,carSize,seater,fuelType,gearType,brand,poster,link;
    
    public int getCid() {
       return cid;
@@ -52,17 +52,18 @@ public class RentInfoVO {
    public void setBrand(String brand) {
       this.brand = brand;
    }
-   public String getdOption() {
-      return dOption;
-   }
-   public void setdOption(String dOption) {
-      this.dOption = dOption;
-   }
+   
    public String getLink() {
       return link;
    }
    public void setLink(String link) {
       this.link = link;
+   }
+   public String getPoster() {
+      return poster;
+   }
+   public void setPoster(String poster) {
+      this.poster = poster;
    }
    
 }
