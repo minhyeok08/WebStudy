@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sist.common.CommonModel;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.MemberDAO;
 import com.sist.vo.MemberVO;
@@ -16,6 +17,7 @@ public class MemberModel {
 	public String memberjoin(HttpServletRequest request, HttpServletResponse response)
 	{
 		request.setAttribute("main_jsp", "../member/join.jsp");
+		CommonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}
 	@RequestMapping("member/idcheck.do")
@@ -95,6 +97,7 @@ public class MemberModel {
 		MemberDAO dao=MemberDAO.newInstance();
 		dao.memberInsert(vo);
 		//이동
+		
 		return "redirect:../main/main.do";
 	}
 	@RequestMapping("member/login.do")

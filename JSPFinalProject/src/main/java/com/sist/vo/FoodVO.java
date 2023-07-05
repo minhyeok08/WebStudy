@@ -16,10 +16,16 @@ SOSO      NUMBER
 POSTER    NOT NULL VARCHAR2(4000)
 */
 public class FoodVO {
-	private int fno,cno,good,soso,bad;
+	private int fno,cno,good,soso,bad,hit,account;
 	private double score;
 	private String name,address,phone,type,price,parking,time,menu,poster;
 	
+	public int getAccount() {
+		return account;
+	}
+	public void setAccount(int account) {
+		this.account = account;
+	}
 	public int getFno() {
 		return fno;
 	}
@@ -109,6 +115,12 @@ public class FoodVO {
 	}
 	public void setPoster(String poster) {
 		this.poster = poster;
+	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 	
 	
