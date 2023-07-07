@@ -13,7 +13,29 @@
 	width: 960px;
 }
 </style>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+let i=0; // 전역변수
+$(function(){
+	$('.ups').click(function(){ // 수정 버튼 클릭(<span>)
+		$('.updates').hide();
+		$('.ups').text("수정");
+		let no=$(this).attr("data-no");
+		if(i==0)
+		{
+			$(this).text("취소");
+			$('#u'+no).show();
+			i=1;
+		}
+		else
+		{
+			$(this).text("수정");
+			$('#u'+no).hide();
+			i=0;
+		}
+	})
+})
+</script>
 </head>
 <body>
 <div class="wrapper row3">
@@ -97,17 +119,33 @@
   						<c:forEach var="rvo" items="${rList }" >
   							<table class="table">
   								<tr>
-  									<td class="text-left"></td>
+  									<td class="text-left">
   										◑${rvo.name }&nbsp;(${rvo.dbday })
-  									<td class="text-right"></td>
+  									</td>
+  									<td class="text-right">
   									<c:if test="${sessionScope.id==rvo.id }">
-  										<a href="#" class="btn btn-xs btn-danger">수정</a>
-  										<a href="#" class="btn btn-xs btn-primary">삭제</a>
+  										<span class="btn btn-xs btn-danger ups" data-no="${rvo.no }">수정</span>
+  										<a href="../reply/reply_delete.do?no=${rvo.no }&type=${rvo.type }&cno=${rvo.cno }" class="btn btn-xs btn-primary">삭제</a>
   									</c:if>
+  									</td>
   								</tr>
   								<tr>
-  									<td colspan="2" valign="top" class="text-left"></td>
+  									<td colspan="2" valign="top" class="text-left">
   									<pre style="white-space:pre-wrap;background-color:white;border:none">${rvo.msg }</pre>
+  									</td>
+  								</tr>
+  								<%-- 수정 폼 --%>
+  								<tr style="display:none" class="updates" id="u${rvo.no }">
+				  					<td colspan="2">
+				  					<form method=post action="../reply/reply_update.do">
+				  						<input type="hidden" name="no" value="${rvo.no }">
+				  						<input type="hidden" name="cno" value="${vo.fno }">
+				  						<input type=hidden name="type" value="1">
+				  						<Textarea rows="5" cols="60" name="msg" style="float:left">${rvo.msg }</Textarea>
+				  						<input type=submit value="댓글수정" 
+				  						style="width:120px;height: 106px;background-color:green;color:white;"> 
+				  					</form>	
+				  					</td> 
   								</tr>
   							</table>
   						</c:forEach>
