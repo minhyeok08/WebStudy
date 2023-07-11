@@ -1,10 +1,45 @@
 package com.sist.dao;
 import java.util.*;
+
 import java.sql.*;
 import com.sist.common.*;
 import com.sist.vo.*;
 
 import oracle.jdbc.OracleTypes;
+/*
+ * 		try
+		{
+			getConnection()
+			insert 
+			update
+			insert
+			commit()
+			
+		}catch(Exception ex)
+		{
+			rollback()
+			ex.printStackTrace();
+		}
+		finally
+		{
+			db.disConnection(conn, cs);
+		}
+		return list;
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 public class ReplyDAO {
 	private Connection conn;
 	private CallableStatement cs;

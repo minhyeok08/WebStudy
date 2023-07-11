@@ -50,6 +50,7 @@ public class SeoulModel {
 	@RequestMapping("seoul/seoul_detail.do")
 	public String seoul_Detail(HttpServletRequest request, HttpServletResponse response)
 	{
+		// 06021 서울 강남구 도산대로 317 (신사동, 호림아트센터 1빌딩)
 		String no=request.getParameter("no");
 		String type=request.getParameter("type");
 		SeoulDAO dao=SeoulDAO.newInstance();
@@ -57,6 +58,12 @@ public class SeoulModel {
 		request.setAttribute("vo", vo);
 		request.setAttribute("type", type);
 		request.setAttribute("main_jsp", "../seoul/seoul_detail.jsp");
+		
+		String addr=vo.getAddress();
+		String addr1=addr.substring(addr.indexOf(" ")+1); 
+		String addr2=addr1.substring(addr1.indexOf(" ")+1);
+		String addr3=addr2.substring(0,addr2.indexOf(" "));
+		request.setAttribute("addr", addr3.trim()+" 맛집");
 		return "../main/main.jsp";
 	}
 }

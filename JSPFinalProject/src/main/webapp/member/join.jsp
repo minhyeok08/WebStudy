@@ -129,10 +129,10 @@ $(function(){
 					<tr>
 						<th class="text-right" width=10%>전화</th>
 						<td width=90% class="inline">
-							<select name=phone1 class="input-sm">
+							<select name=phone1 id=phone1 class="input-sm">
 								<option>010</option>
 							</select>
-							<input type=text name=phone id=phone size=12 class="input-sm">
+							<input type=text name=phone2 id=phone2 size=12 class="input-sm">
 							<input type=button value="전화체크" class="btn btn-sm btn-warning" id="phoneBtn">
 						</td>
 					</tr>
