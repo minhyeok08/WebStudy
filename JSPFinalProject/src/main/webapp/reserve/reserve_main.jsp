@@ -52,7 +52,7 @@ $(function(){
   <main class="container clear">
 		<h2 class="sectiontitle">맛집 예약</h2>
 		<div class="row">
-			<table class="table" height=700>
+			<table class="table" height="700">
 				<tr>
 					<td width=20% height="580" class="danger">
 					<table class="table">
