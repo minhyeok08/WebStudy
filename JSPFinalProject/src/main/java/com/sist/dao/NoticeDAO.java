@@ -115,4 +115,108 @@ public class NoticeDAO {
 		}
 		return vo;
 	}
+	// 목록 => 제작
+	// admin만
+	// 추가
+	public void noticeInsert(NoticeVO vo)
+	{
+		try
+		{
+			conn=db.getConnection();
+			String sql="insert into project_notice values("
+					+ "pn_no_seq.nextval,?,?,?,?,?,sysdate,0)";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, vo.getId());
+			ps.setString(2, vo.getName());
+			ps.setInt(3, vo.getType());
+			ps.setString(4, vo.getSubject());
+			ps.setString(5, vo.getContent());
+			// in,out 입출력 오류
+			/*
+			 * 	null : URL => server.xml
+			 * 	실행 => 오류가 없고 화면에 데이터가 안들어온다
+			 */
+			ps.executeUpdate();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			db.disConnection(conn, ps);
+		}
+		
+	}
+	// 삭제
+	public void noticeDelete(int no)
+	{
+		try
+		{
+			conn=db.getConnection();
+			String sql="delete from project_notice "
+					+ "where no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.executeUpdate();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			db.disConnection(conn, ps);
+		}
+	}
+	// 수정
+	public NoticeVO noticeUpdateData(int no)
+	{
+		NoticeVO vo=new NoticeVO();
+		try
+		{
+			conn=db.getConnection();
+			String sql="select no,type,subject,content "
+					+ "from project_notice "
+					+ "where no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setType(rs.getInt(2));
+			vo.setSubject(rs.getString(3));
+			vo.setContent(rs.getString(4));
+			rs.close();
+					
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		finally
+		{
+			db.disConnection(conn, ps);
+		}
+		return vo;
+	}
+	public void noticeUpdate(NoticeVO vo)
+	{
+		try
+		{
+			conn=db.getConnection();
+			String sql="update project_notice set "
+					+ "type=?,subject=?,content=? "
+					+ "where no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, vo.getType());
+			ps.setString(2, vo.getSubject());
+			ps.setString(3, vo.getContent());
+			ps.setInt(4, vo.getNo());
+			ps.executeUpdate();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			db.disConnection(conn, ps);
+		}
+	}
 }
