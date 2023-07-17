@@ -48,7 +48,7 @@ $(function(){
 						입력:<input type=text name=dong id=dong size=12 class="input-sm">
 							<input type=button value="검색" class="btn btn-sm btn-primary"
 							id="postBtn">
-					</td>>
+					</td>
 				</tr>
 				<tr>
 					<td class="text-right">
